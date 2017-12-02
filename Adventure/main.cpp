@@ -83,11 +83,15 @@ int main()
 	cout << "Let's begin!!" << endl;
 	std::cin.get();
 
+	// DOWNLOAD FILE FROM NET
+	const char command[] = "Powershell -command \"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/angrammenos97/CommunityHigherLower/master/Adventure/Q%26A.txt\" -OutFile \".\\QnA.txt\"\"";
+	system(command);
+
 	// LOADING QUESTIONS FROM FILE		
 	fstream QnAfile;
-	QnAfile.open("Q&A.txt");
+	QnAfile.open("QnA.txt");
 	if (!QnAfile.is_open()) {
-		cout << "Cannot find the file \"Q&A.txt\"! Make sure it's with the same directory with the programm." << endl;
+		cout << "Cannot find the file \"QnA.txt\"! Make sure it's with the same directory with the programm." << endl;
 		system("pause");
 		return -1;
 	}
