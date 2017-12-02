@@ -1,7 +1,7 @@
 The population of Greece is 20 million.
 20
 12
-Coke Zero has 2 callories
+Coke Zero has 2 callories.
 2
 0
 You must drink at least 20 water glasses per day.
@@ -10,6 +10,27 @@ You must drink at least 20 water glasses per day.
 Local Hack Day has so far been organized 2 times.
 2
 4
-Anastasis has 5 legs.
+A normal human being has 5 legs.
 5
 2
+Marvel's cinematic Universe includes a total of 12 released films.
+12
+17
+Microwaves require a minimum of 320 hours of hard studying...!
+320
+15
+Our solar system consists of 9 planets.
+9
+8
+There are 10 billion galaxies in the observable Universe.
+10
+100
+Greece's FIFA ranking is #16.
+16
+50
+The world's oldest man was born is Spain and is 120 years old.
+120
+112
+Liverpool is #3 in the British Premier League
+3
+5
