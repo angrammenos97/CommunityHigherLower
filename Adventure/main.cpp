@@ -84,7 +84,7 @@ int main()
 	std::cin.get();
 
 	// DOWNLOAD FILE FROM NET
-	const char command[] = "Powershell -command \"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/angrammenos97/CommunityHigherLower/master/Adventure/Q%26A.txt\" -OutFile \".\\QnA.txt\"\"";
+	const char command[] = "Powershell -command \"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/angrammenos97/CommunityHigherLower/master/Adventure/QnA.txt\" -OutFile \".\\QnA.txt\"\"";
 	system(command);
 
 	// LOADING QUESTIONS FROM FILE		
