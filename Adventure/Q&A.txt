@@ -4,3 +4,6 @@ The population of Greece is 20 million.
 Coke Zero has 2 callories
 2
 0
+You must drink at least 20 water glasses per day.
+20
+8
