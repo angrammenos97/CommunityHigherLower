@@ -38,6 +38,9 @@ public:
 	int getSaidAnsw()	{
 		return this->saidAns;
 	}
+	int getRes() {
+		return this->res;
+	}
 };
 
 void game() {
@@ -51,7 +54,13 @@ void game() {
 	int saidAns, correctAnsw;
 
 	vector<Sentence> mySentences;
-
+	// GENERAL GAME VARIABLES
+	int lives = 3;
+	int points = 0;
+	int new_points = 0;
+	vector<int> crossedOut;
+	bool flag = false;
+	
 	while (getline(QnAfile, sent))
 	{
 		getline(QnAfile, line);
@@ -63,22 +72,77 @@ void game() {
 	}
 
 	// FINISHED LOADING
-	cout << "Press any key to show the first question!" << endl;
-	cin.get();
-	cout << "Question:" << endl;
-	srand(time(NULL));
-	int select = rand() % mySentences.size();
-	cout << mySentences[select].getSentence() << endl;
 	
-	// pes apanthsh
-	int myAnswer;
-	cin >> myAnswer;
-	if (myAnswer == mySentences[select].getCorrAnsw())
-		cout << "YES CORRECT" << endl;
-	else {
-		cout << "NO WRONG" << endl;
+	
+	
+	while (lives > 0) {
+		int select;
+		
+		do {
+			flag = false;
+			srand(time(NULL));
+			select = rand() % mySentences.size();
+			for (int i = 0; i < crossedOut.size(); i++) {
+				if (select == crossedOut[i])
+					flag = true;
+			}
+		} while (flag == true);
+
+		crossedOut.push_back(select);
+		cout << "Question:" << endl;
+		cout << mySentences[select].getSentence() << endl;
+		char myAnswer[256];
+		int translation;
+		cin >> myAnswer;
+		if (myAnswer[0] == 'h' || myAnswer[0] == 'H')
+			translation = 1;
+		else if (myAnswer[0] == 'l' || myAnswer[0] == 'L')
+			translation = 0;
+		else {
+			cout << "You need to write a proper answer! You lose one life >:( " << endl;
+			translation = 2;
+		}
+
+		if (translation == mySentences[select].getRes()) {
+			new_points = (int)(mySentences[select].getCorrAnsw() - mySentences[select].getSaidAnsw())*(mySentences[select].getCorrAnsw() - mySentences[select].getSaidAnsw());
+			points += new_points;
+			cout << endl << "Spot on!" << endl;
+			cout << "The correct answer was " << mySentences[select].getCorrAnsw() << endl;
+			cout << "... which nets you " << new_points << " points for a total of " << points << " !" << endl;
+		}
+		else {
+			cout << endl << "That was embarassing..." << endl;
+			cout << "Your lives get reduced to " << --lives << " !" << endl;
+		}
+		
+		system("pause");
+		if (crossedOut.size() == mySentences.size()) {
+			cout << "We're all out of questions! Good job for getting this far..." << endl;
+			lives = 0;
+		}
+		
+		
+		/*cout << mySentences[select].getSentence() << endl;
+		int myAnswer;
+		cin >> myAnswer;
+		if (myAnswer == mySentences[select].getRes()) {
+			new_points = (int)(mySentences[select].getCorrAnsw() - mySentences[select].getSaidAnsw())*(mySentences[select].getCorrAnsw() - mySentences[select].getSaidAnsw());
+			points += new_points;
+			cout << endl << "Spot on!" << endl;
+			cout << "The correct answer was " << mySentences[select].getCorrAnsw() << endl;
+			cout << "... which nets you " << new_points << " points for a total of " << points << " !" << endl;
+		}
+			
+		else {
+			cout << endl << "That was embarassing..." << endl;
+			cout << "Your lives get reduced to " << --lives << " !" << endl;
+		}*/
+		
 	}
-	//cin.get();
+
+	cout << "Game Over!" << endl << "Your final count is " << points << " points!" << endl;
+	
+	//cin.get();*/
 }
 
 
