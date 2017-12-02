@@ -80,10 +80,12 @@ int main()
 {
 	cout << "Welcome to the *cough* only *cough* open-source Higher-Lower game! We use GitHub's repository environment along with Visual Studio's integration." << endl;
 	cout << "The basic concept is to enable anyone, regardless of coding skills, to contribute by adding his own questions via an easy-to-use, human-friendly text file." << endl;
+	cout << "For more information: https://github.com/angrammenos97/CommunityHigherLower" << endl;
 	cout << "Let's begin!!" << endl;
 	std::cin.get();
 
 	// DOWNLOAD FILE FROM NET
+	cout << "Updating file..." << endl;
 	const char command[] = "Powershell -command \"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/angrammenos97/CommunityHigherLower/master/Adventure/QnA.txt\" -OutFile \".\\QnA.txt\"\"";
 	system(command);
 
